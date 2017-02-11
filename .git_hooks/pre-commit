@@ -4,7 +4,6 @@
 # https://github.com/deniscostadsc/dotfiles/
 # http://tech.yipit.com/2011/11/16/183772396/
 
-import os
 import re
 import subprocess
 import sys
