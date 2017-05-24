@@ -14,6 +14,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -82,3 +83,10 @@ map <leader>z :tabp<CR>
 map <leader>x :tabn<CR>
 
 let NERDTreeIgnore = ['\.pyc$']
+
+" ack.vim for ag
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep --smart-case'
+    cnoreabbrev ag Ack
+    cnoreabbrev Ag Ack
+endif
