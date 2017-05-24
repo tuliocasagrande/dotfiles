@@ -35,10 +35,12 @@ set noeb vb t_vb=
 au GUIEnter * set vb t_vb=
 
 set number
+set mouse=nvi " don't use mouse in ex-mode
+set clipboard=unnamed
 
 syntax enable
-colorscheme neon
 set background=dark
+colorscheme Monokai
 
 set encoding=utf8
 set ffs=unix,dos,mac
