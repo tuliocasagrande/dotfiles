@@ -18,5 +18,3 @@
 [core]
 	autocrlf = input
 	excludesfile = ~/dotfiles/.gitignore_global
-[merge]
-	ff = only
