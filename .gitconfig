@@ -1,0 +1,22 @@
+[user]
+	name = Tulio Casagrande
+	email = tuliocasagrande@gmail.com
+	signingkey = 33D4D34C83C30FE7
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[push]
+	default = simple
+[commit]
+	gpgsign = true
+[alias]
+	st = status
+	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+[init]
+	templatedir = ~/dotfiles/.git_templates
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+[merge]
+	ff = only
