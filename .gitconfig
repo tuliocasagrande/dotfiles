@@ -17,6 +17,6 @@
 	templatedir = ~/dotfiles/.git_templates
 [core]
 	autocrlf = input
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/dotfiles/.gitignore_global
 [merge]
 	ff = only
