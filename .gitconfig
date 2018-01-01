@@ -10,6 +10,8 @@
 	default = simple
 [commit]
 	gpgsign = true
+[tag]
+	gpgsign = true
 [alias]
 	st = status
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
