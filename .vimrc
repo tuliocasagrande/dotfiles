@@ -1,12 +1,14 @@
 set shell=/bin/bash
-set nocompatible
-filetype off
 
+set nocompatible              " be iMproved, required
+filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" let Vundle manage itself, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'flazz/vim-colorschemes'
+
+" Plugins
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
@@ -15,6 +17,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mileszs/ack.vim'
+
+" Color schemes
+Plugin 'flazz/vim-colorschemes'
 
 call vundle#end()
 filetype plugin indent on
@@ -38,9 +43,10 @@ set number
 set mouse=nvi " don't use mouse in ex-mode
 set clipboard=unnamed
 
-syntax enable
 set background=dark
-colorscheme Monokai
+syntax enable
+colorscheme wombat256
+"colorscheme zenburn
 
 set encoding=utf8
 set ffs=unix,dos,mac
