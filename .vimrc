@@ -45,8 +45,8 @@ set clipboard=unnamed
 
 set background=dark
 syntax enable
-colorscheme wombat256
-"colorscheme zenburn
+"colorscheme wombat256
+colorscheme zenburn
 
 set encoding=utf8
 set ffs=unix,dos,mac
