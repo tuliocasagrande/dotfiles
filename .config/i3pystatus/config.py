@@ -67,26 +67,28 @@ status.register(
 status.register(
     "network",
     interface="enp3s0",
-    format_up="{bytes_recv} KB/s {network_graph_recv}",
-    format_down="")
+    format_up="{interface} {bytes_recv:5,d} KB/s {network_graph_recv}",
+    format_down="",
+    recv_limit=6144)
 
 # Note: requires both netifaces and basiciw (for essid and quality)
 status.register(
     "network",
     interface="wlp2s0",
-    format_up="{essid} ({quality}%) {bytes_recv}KB/s {network_graph_recv}",
+    format_up="{essid} ({quality}%) {bytes_recv:5,d} KB/s "
+              "{network_graph_recv}",
     recv_limit=6144)
 
 # Shows disk usage of / and /home
 status.register(
     "disk",
     path="/home",
-    format="/home: {avail:.1f}G",
+    format="/home {avail:.1f}G",
     on_leftclick="nautilus")
 status.register(
     "disk",
     path="/",
-    format="/: {avail:.1f}G",
+    format="/ {avail:.1f}G",
     on_leftclick="nautilus")
 
 # Shows pulseaudio default sink volume
