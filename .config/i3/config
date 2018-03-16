@@ -136,7 +136,7 @@ bindsym $mod+Ctrl+9 move container to workspace $ws9
 bindsym $mod+Ctrl+0 move container to workspace $ws10
 
 # Open applications on specific workspaces
-assign [title="Slack"] $ws10
+assign [title="Slack"] $ws6
 
 # Open applications in floating mode
 for_window [title="KeePassXC"] floating enable
@@ -220,6 +220,7 @@ mode "resize" {
 exec --no-startup-id SpiderOakONE
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
+exec slack
 
 # Applications shortcuts
 bindsym $mod+k exec keepassxc
