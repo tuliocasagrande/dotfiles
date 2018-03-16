@@ -227,6 +227,8 @@ exec slack
 
 # Applications shortcuts
 bindsym $mod+k exec keepassxc
+bindsym Print exec --no-startup-id gnome-screenshot
+bindsym Ctrl+Print exec --no-startup-id gnome-screenshot --area
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
