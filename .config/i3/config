@@ -57,7 +57,6 @@ bindsym $mod+Shift+Right move right
 # split orientation
 bindsym $mod+h split h
 bindsym $mod+v split v
-bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -107,10 +106,6 @@ bindsym $mod+0 workspace $ws10
 workspace_auto_back_and_forth yes
 bindsym $mod+Tab workspace back_and_forth
 
-# switch to the next and previous workspace
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
-
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
@@ -136,7 +131,7 @@ bindsym $mod+Ctrl+9 move container to workspace $ws9
 bindsym $mod+Ctrl+0 move container to workspace $ws10
 
 # Open applications on specific workspaces
-assign [title="Slack"] $ws6
+assign [title="Slack"] $ws8
 
 # Open applications in floating mode
 for_window [title="KeePassXC"] floating enable
@@ -162,8 +157,8 @@ workspace $ws2 output $display1
 workspace $ws3 output $display1
 workspace $ws4 output $display1
 workspace $ws5 output $display1
-workspace $ws6 output $display2
-workspace $ws7 output $display2
+workspace $ws6 output $display1
+workspace $ws7 output $display1
 workspace $ws8 output $display2
 workspace $ws9 output $display2
 workspace $ws10 output $display2
