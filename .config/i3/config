@@ -73,6 +73,16 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+x move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window
+# If there are multiple scratchpad windows, this command cycles through them
+bindsym $mod+x scratchpad show
+
 # focus the parent container
 bindsym $mod+a focus parent
 
@@ -136,6 +146,7 @@ assign [title="Slack"] $ws8
 
 # Open applications in floating mode
 for_window [title="KeePassXC"] floating enable
+for_window [title="KeePassXC"] sticky enable
 for_window [title="Calendar"] floating enable
 for_window [title="System Monitor"] floating enable
 for_window [title="SpiderOakONE"] floating enable
