@@ -5,6 +5,9 @@ set -e
 ln -s ~/dotfiles/.gitconfig ~/
 ln -s ~/dotfiles/.vimrc ~/
 ln -s ~/dotfiles/.tmux.conf ~/
+ln -s ~/dotfiles/.inputrc ~/
+
+mkdir ~/.jupyter/
 ln -s ~/dotfiles/.jupyter/jupyter_notebook_config.py ~/.jupyter/
 
 mkdir ~/.config/i3/ ~/.config/i3pystatus/
