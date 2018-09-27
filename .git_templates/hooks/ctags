@@ -1,7 +1,0 @@
-#!/bin/sh
-set -e
-
-echo 'Building ctags'
-dir=`git rev-parse --show-toplevel`
-git ls-files -- "*.py" | ctags --tag-relative -L - --languages=python -f "$dir/tags"
-
