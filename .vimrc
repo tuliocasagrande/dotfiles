@@ -9,14 +9,14 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
-Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-fugitive'          " git wrapper
+Plugin 'bling/vim-airline'           " status bar
+Plugin 'airblade/vim-gitgutter'      " git status next to lines
+Plugin 'scrooloose/syntastic'        " syntax checking
+Plugin 'ctrlpvim/ctrlp.vim'          " fuzzy finder
+Plugin 'scrooloose/nerdtree'         " file system explorer
+Plugin 'Xuyuanp/nerdtree-git-plugin' " NERDTree plugin showing git status
+Plugin 'mileszs/ack.vim'             " search like grep, but faster
 
 " Color schemes
 Plugin 'flazz/vim-colorschemes'
@@ -24,8 +24,19 @@ Plugin 'flazz/vim-colorschemes'
 call vundle#end()
 filetype plugin indent on
 
-set autoread
+" set mapleader for extra key combinations
+let mapleader = ","
+let g:mapleader = ","
 
+set number
+syntax enable
+set background=dark
+colorscheme zenburn
+
+set title      " set window title according to the open file
+set autoread   " set to auto read when a file is changed from the outside
+set encoding=utf8
+set ffs=unix,dos,mac
 set so=7
 set wildmenu
 set wildmode=longest:full,full
@@ -35,66 +46,74 @@ set hlsearch
 set incsearch
 set showmatch
 set mat=2
-
-set noeb vb t_vb=
-au GUIEnter * set vb t_vb=
-
-set number
-set mouse=nvi " don't use mouse in ex-mode
+set laststatus=2
+set mouse=nvi  " don't use mouse in ex-mode
 set clipboard=unnamed
+set backspace=indent,eol,start
+set cursorline
 
-set background=dark
-syntax enable
-"colorscheme wombat256
-colorscheme zenburn
+" use tab with 4 spaces
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
 
-set encoding=utf8
-set ffs=unix,dos,mac
+" disable beeping
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+" turn backup off
 set nobackup
 set nowb
 set noswapfile
 
-set expandtab
-set smarttab
-set shiftwidth=4
-set tabstop=4
-set lbr
-set tw=80
-
-set backspace=indent,eol,start
-
-set ai
-set si
+set ai           " auto indent
+set si           " smart indent
 set wrap
 set linebreak
-set nolist
-
+set nolist       " list disables linebreak
 set textwidth=0
 set wrapmargin=0
 
-set laststatus=2
+" some handy themes
+nnoremap <leader>1 :colorscheme zenburn<cr>
+nnoremap <leader>2 :colorscheme obsidian<cr>
+nnoremap <leader>3 :colorscheme molokai<cr>
+nnoremap <leader>4 :colorscheme badwolf<cr>
 
-let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("e")': [],
-  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
-  \ }
+" strip trailing whitespace
+nnoremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
 
-let mapleader = ","
-let g:mapleader = ","
+" show trailing whitespace in red
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+augroup whitespace
+    autocmd!
+    autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+    autocmd BufWinLeave * call clearmatches()
+augroup END
 
+" remap movement to move by column layout
 map j gj
 map k gk
+noremap <Down> gj
+noremap <Up> gk
 
-map <leader>t :CtrlP<CR>
-map \ :NERDTreeToggle<CR>
-map <leader>z :tabp<CR>
-map <leader>x :tabn<CR>
+" CtrlP
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
-" ack.vim for ag
+" let ack.vim use ag (the silver searcher)
 if executable('ag')
-    let g:ackprg = 'ag --vimgrep --smart-case'
-    cnoreabbrev ag Ack
-    cnoreabbrev Ag Ack
+    let g:ackprg = 'ag --vimgrep'
+    cnoreabbrev ag Ack!
+    cnoreabbrev Ag Ack!
+    cnoreabbrev ack Ack!
+    cnoreabbrev Ack Ack!
 endif
