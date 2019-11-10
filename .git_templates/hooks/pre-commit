@@ -23,12 +23,12 @@ CHECKS = [
         'match_files': ['.*\.py$'],
         'print_filename': False,
     },
-    {
-        'output': 'Checking for print calls...',
-        'command': 'grep -n print %s',
-        'match_files': ['.*\.py$'],
-        'print_filename': True,
-    },
+    # {
+    #     'output': 'Checking for print calls...',
+    #     'command': 'grep -n print %s',
+    #     'match_files': ['.*\.py$'],
+    #     'print_filename': True,
+    # },
 ]
 
 
