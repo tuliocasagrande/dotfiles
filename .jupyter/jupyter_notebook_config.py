@@ -11,8 +11,10 @@ def post_save(model, os_path, contents_manager):
     if model['type'] != 'notebook' or model['name'].startswith('Untitled'):
         return  # only do this for notebooks
     d, fname = os.path.split(os_path)
-    check_call(['jupyter', 'nbconvert', '--to', 'script', fname], cwd=d)
-    check_call(['jupyter', 'nbconvert', '--to', 'html', fname], cwd=d)
+    check_call(['jupyter', 'nbconvert', '--output-dir', 'exports/', '--to',
+                'script', fname], cwd=d)
+    check_call(['jupyter', 'nbconvert', '--output-dir', 'exports/', '--to',
+                'html', fname], cwd=d)
 
 
 c.FileContentsManager.post_save_hook = post_save
