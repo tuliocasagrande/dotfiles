@@ -2,16 +2,16 @@
 	name = Tulio Casagrande
 	email = tuliocasagrande@gmail.com
 	signingkey = 33D4D34C83C30FE7
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
 [push]
 	default = simple
-[commit]
-	gpgsign = true
-[tag]
-	gpgsign = true
 [alias]
 	st = status
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -20,3 +20,8 @@
 [core]
 	autocrlf = input
 	excludesfile = ~/dotfiles/.gitignore_global
+[credential]
+	helper = !aws codecommit credential-helper $@
+	UseHttpPath = true
+[includeIf "gitdir:~/code/work/"]
+	path = .gitconfig.work
