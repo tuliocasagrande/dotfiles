@@ -26,3 +26,6 @@ Temporary Items
 
 # Visual Studio Code
 .vscode/
+
+# IntelliJ
+.idea/
