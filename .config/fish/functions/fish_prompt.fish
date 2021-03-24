@@ -69,6 +69,15 @@ function fish_prompt --description 'Write out the prompt'
             set suffix '$'
     end
 
+    # AWS_PROFILE
+    if set -q AWS_PROFILE
+        set_color -b FF9900 black
+        # set_color -o FF9900
+        echo -n $AWS_PROFILE
+        set_color normal
+        echo -n " "
+    end
+
     # PWD
     set_color $color_cwd
     echo -n (prompt_pwd)
