@@ -7,6 +7,11 @@ ln -s ~/dotfiles/.vimrc ~/
 ln -s ~/dotfiles/.tmux.conf ~/
 ln -s ~/dotfiles/.inputrc ~/
 
+mkdir -p ~/.config/fish/functions/
+ln -s ~/dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
+ln -s ~/dotfiles/.config/fish/functions/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
+ln -s ~/dotfiles/.config/fish/functions/rm_dsstore.fish ~/.config/fish/functions/rm_dsstore.fish
+
 mkdir ~/.jupyter/
 ln -s ~/dotfiles/.jupyter/jupyter_notebook_config.py ~/.jupyter/
 
