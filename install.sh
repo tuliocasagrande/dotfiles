@@ -11,6 +11,7 @@ mkdir -p ~/.config/fish/functions/
 ln -s ~/dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
 ln -s ~/dotfiles/.config/fish/functions/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 ln -s ~/dotfiles/.config/fish/functions/rm_dsstore.fish ~/.config/fish/functions/rm_dsstore.fish
+ln -s ~/dotfiles/.config/fish/functions/mkcd.fish ~/.config/fish/functions/mkcd.fish
 
 mkdir ~/.jupyter/
 ln -s ~/dotfiles/.jupyter/jupyter_notebook_config.py ~/.jupyter/
