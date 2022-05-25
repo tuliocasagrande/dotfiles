@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 ln -s ~/dotfiles/.gitconfig ~/
 ln -s ~/dotfiles/.vimrc ~/
 ln -s ~/dotfiles/.tmux.conf ~/
