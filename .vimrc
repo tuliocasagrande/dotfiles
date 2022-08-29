@@ -101,12 +101,15 @@ map k gk
 noremap <Down> gj
 noremap <Up> gk
 
+" toggle relative number
+nnoremap <C-n> :set relativenumber!<CR>
+
 " CtrlP
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-b> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
 " let ack.vim use ag (the silver searcher)
