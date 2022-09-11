@@ -78,6 +78,15 @@ function fish_prompt --description 'Write out the prompt'
         echo -n " "
     end
 
+    # When working inside a host, it's helpful to print date and hostname (default false)
+    set -f host_prompt 0
+    if test $host_prompt = 1
+        # Print date
+        printf '[%s] ' (date "+%Y-%m-%d %H:%M:%S")
+        # Print hostname
+        printf '%s%s%s\n> ' (set_color yellow) (prompt_hostname) (set_color normal)
+    end
+
     # PWD
     set_color $color_cwd
     echo -n (prompt_pwd)
