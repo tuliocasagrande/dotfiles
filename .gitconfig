@@ -27,5 +27,7 @@
 	UseHttpPath = true
 [includeIf "gitdir:~/code/work/"]
 	path = .gitconfig.work
+[includeIf "gitdir:~/workplace/"]
+	path = .gitconfig.work
 [pull]
 	ff = only
