@@ -1,0 +1,16 @@
+{
+  "preferences": {
+    "default_formatter": {
+      "python": ["isort", "black"]
+    }
+  },
+  "black": {
+    "line_length": 100,
+    "string_normalization": true,
+    "magic_trailing_comma": true
+  },
+  "isort": {
+    "line_length": 100
+  },
+  "formatOnSave": true
+}

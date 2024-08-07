@@ -1,0 +1,14 @@
+{
+  "language_servers": {
+    "pylsp": {
+      "serverSettings": {
+        "pylsp.plugins.flake8.enabled": true,
+        "pylsp.plugins.flake8.ignore": ["E303", "E402"],
+        "pylsp.plugins.flake8.maxLineLength": 100,
+        "pylsp.plugins.pycodestyle.enabled": false,
+        "pylsp.plugins.pyflakes.enabled": false,
+        "pylsp.plugins.pylint.enabled": false
+      }
+    }
+  }
+}

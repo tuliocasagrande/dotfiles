@@ -1,0 +1,10 @@
+{
+  "editorConfig": {
+    "autoClosingBrackets": true,
+    "highlightActiveLine": true,
+    "highlightTrailingWhitespace": true,
+    "highlightWhitespace": true,
+    "lineWrap": false,
+    "rulers": [100]
+  }
+}

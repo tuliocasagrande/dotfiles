@@ -1,0 +1,14 @@
+{
+  "codeCellConfig": {
+    "autoClosingBrackets": true,
+    "highlightTrailingWhitespace": true,
+    "lineNumbers": false,
+    "lineWrap": false
+  },
+  "markdownCellConfig": {
+    "autoClosingBrackets": true,
+    "highlightTrailingWhitespace": true,
+    "lineNumbers": false,
+    "matchBrackets": true
+  }
+}
