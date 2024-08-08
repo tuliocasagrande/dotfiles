@@ -1,0 +1,8 @@
+[user]
+	name = Tulio Casagrande
+	email = tuliocasagrande@gmail.com
+	signingkey = 33D4D34C83C30FE7
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true

@@ -1,11 +1,10 @@
-[user]
-	name = Tulio Casagrande
-	email = tuliocasagrande@gmail.com
-	signingkey = 33D4D34C83C30FE7
-[commit]
-	gpgsign = true
-[tag]
-	gpgsign = true
+[include]
+	path = ~/dotfiles/.gitconfig.default
+[includeIf "gitdir:~/code/work/"]
+	path = ~/.gitconfig.work
+[includeIf "gitdir/i:~/workplace/"]
+	path = ~/.gitconfig.work
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -25,10 +24,6 @@
 [credential]
 	helper = !aws codecommit credential-helper $@
 	UseHttpPath = true
-[includeIf "gitdir:~/code/work/"]
-	path = .gitconfig.work
-[includeIf "gitdir:~/workplace/"]
-	path = .gitconfig.work
 [pull]
 	ff = only
 [diff "jupyternotebook"]
