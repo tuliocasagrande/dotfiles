@@ -12,13 +12,6 @@
                 "Ctrl 0"
             ],
             "selector": "[data-jp-code-runner]"
-        },
-        {
-            "command": "runmenu:restart-and-run-all",
-            "keys": [
-                "Accel R"
-            ],
-            "selector": "[data-jp-code-runner]"
         }
     ]
 }
