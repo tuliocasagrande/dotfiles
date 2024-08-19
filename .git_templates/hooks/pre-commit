@@ -12,28 +12,28 @@ modified = re.compile(r"^[MA]\s+(?P<name>.*)$")
 
 CHECKS = [
     {
-        "output": "Checking for [i]pdbs...",
-        "command": r'grep -n "import i\?pdb" %s',
+        "prompt": "Checking for [i]pdbs...",
+        "command": r'grep -Hn "import i\?pdb" {}',
         "match_files": [r".*\.py$"],
-        "print_filename": True,
+        "inverse_return_code": True,
     },
     # {
-    #     "output": "Checking for print calls...",
-    #     "command": "grep -n print %s",
+    #     "prompt": "Checking for print calls...",
+    #     "command": "grep -Hn print {}",
     #     "match_files": [r".*\.py$"],
-    #     "print_filename": True,
+    #     "inverse_return_code": True,
     # },
     {
-        "output": "Running flake8...",
-        "command": "flake8 --extend-ignore=E203,E501 %s",
+        "prompt": "Running flake8...",
+        "command": "flake8 --extend-ignore=E203,E501 {}",
         "match_files": [r".*\.py$"],
-        "print_filename": False,
+        "inverse_return_code": False,
     },
     {
-        "output": "Running black...",
-        "command": "black --check -l 100 %s",
+        "prompt": "Running black...",
+        "command": "black --check -l 100 {}",
         "match_files": [r".*\.py$", r".*\.ipynb$"],
-        "print_filename": False,
+        "inverse_return_code": False,
     },
 ]
 
@@ -44,31 +44,40 @@ def matches_file(file_name, match_files):
 
 def check_files(files, check):
     result = 0
-    print(check["output"])
-    for file_name in files:
-        if "match_files" not in check or matches_file(file_name, check["match_files"]):
+    print(check["prompt"])
 
-            if "ignore_files" not in check or not matches_file(file_name, check["ignore_files"]):
-                process = subprocess.run(
-                    check["command"] % file_name,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    encoding="utf-8",
-                    shell=True,
-                )
-                out = process.stdout
-                err = process.stderr
+    files = [
+        file_name
+        for file_name in files
+        if "match_files" not in check or matches_file(file_name, check["match_files"])
+    ]
+    files = [
+        file_name
+        for file_name in files
+        if "ignore_files" not in check or not matches_file(file_name, check["ignore_files"])
+    ]
+    files_str = " ".join(files)
+    if files_str:
+        process = subprocess.run(
+            check["command"].format(files_str),
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            encoding="utf-8",
+            shell=True,
+        )
 
-                if out or err:
-                    if check["print_filename"]:
-                        prefix = "\t%s:" % file_name
-                    else:
-                        prefix = "\t"
-                    output_lines = ["%s%s" % (prefix, line) for line in out.splitlines()]
-                    print("\n".join(output_lines))
-                    if err:
-                        print(err)
-                    result = 1
+        # Invert the return code for grep to be 0 for no matches (success) and 1 for matches (failure)
+        return_code = process.returncode
+        if check["inverse_return_code"]:
+            return_code = not return_code
+
+        if return_code != 0:
+            stdout_lines = [f"\t{line}" for line in process.stdout.splitlines()]
+            stderr_lines = [f"\t{line}" for line in process.stderr.splitlines()]
+            output = "\n".join(stdout_lines + stderr_lines)
+            print(output)
+            result = 1
+
     return result
 
 
