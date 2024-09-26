@@ -12,5 +12,6 @@
   "isort": {
     "line_length": 100
   },
-  "formatOnSave": true
+  "formatOnSave": true,
+  "suppressFormatterErrors": true
 }
