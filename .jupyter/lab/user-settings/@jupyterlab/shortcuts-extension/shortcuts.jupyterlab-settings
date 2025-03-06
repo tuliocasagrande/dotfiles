@@ -3,15 +3,113 @@
     // @jupyterlab/shortcuts-extension:shortcuts
     // Keyboard shortcut settings.
     // *****************************************
-
     "shortcuts": [
         {
+            "command": "application:toggle-mode",
+            "selector": "body",
+            "disabled": true,
+            "keys": [
+                "Accel Shift D"
+            ]
+        },
+        {
+            "command": "application:toggle-mode",
+            "selector": "body",
+            "keys": [
+                "Accel K",
+                "Accel M"
+            ]
+        },
+        {
+            "command": "codemirror:select-next-occurrence",
+            "selector": ".cm-content",
+            "disabled": true,
+            "keys": [
+                "Accel Shift D"
+            ]
+        },
+        {
+            "command": "codemirror:select-next-occurrence",
+            "selector": ".cm-content",
+            "keys": [
+                "Accel D"
+            ]
+        },
+        {
+            "command": "codemirror:delete-line",
+            "selector": ".cm-content",
+            "disabled": true,
+            "keys": [
+                "Accel D"
+            ]
+        },
+        {
+            "command": "lsp:jump-back",
+            "selector": ".jp-Notebook .jp-CodeCell",
+            "disabled": true,
+            "keys": [
+                "Alt O"
+            ]
+        },
+        {
+            "command": "lsp:jump-back",
+            "selector": ".jp-FileEditor",
+            "disabled": true,
+            "keys": [
+                "Alt O"
+            ]
+        },
+        {
+            "command": "lsp:jump-back",
+            "selector": ".jp-Notebook .jp-CodeCell",
+            "keys": [
+                "Ctrl -"
+            ]
+        },
+        {
+            "command": "lsp:jump-back",
+            "selector": ".jp-FileEditor",
+            "keys": [
+                "Ctrl -"
+            ]
+        },
+        {
+            "command": "lsp:jump-to-definition",
+            "selector": ".jp-FileEditor",
+            "disabled": true,
+            "keys": [
+                "Accel B"
+            ]
+        },
+        {
+            "command": "lsp:jump-to-definition",
+            "selector": ".jp-Notebook .jp-CodeCell",
+            "disabled": true,
+            "keys": [
+                "Accel B"
+            ]
+        },
+        {
+            "command": "lsp:jump-to-definition",
+            "selector": ".jp-FileEditor",
+            "keys": [
+                "Ctrl ="
+            ]
+        },
+        {
+            "command": "lsp:jump-to-definition",
+            "selector": ".jp-Notebook .jp-CodeCell",
+            "keys": [
+                "Ctrl ="
+            ]
+        },
+        {
             "command": "runmenu:restart-and-run-all",
+            "selector": "[data-jp-kernel-user]:not(.jp-mod-readWrite) :focus:not(:read-write)",
             "keys": [
                 "Ctrl 0",
                 "Ctrl 0"
-            ],
-            "selector": "[data-jp-code-runner]"
+            ]
         }
     ]
 }
