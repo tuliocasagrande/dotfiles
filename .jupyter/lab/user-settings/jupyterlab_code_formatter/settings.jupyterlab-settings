@@ -5,12 +5,12 @@
     }
   },
   "black": {
-    "line_length": 100,
+    "line_length": 120,
     "string_normalization": true,
     "magic_trailing_comma": true
   },
   "isort": {
-    "line_length": 100
+    "line_length": 120
   },
   "formatOnSave": true,
   "suppressFormatterErrors": true
