@@ -7,7 +7,7 @@ ln -s ~/dotfiles/.tmux.conf ~/
 ln -s ~/dotfiles/.inputrc ~/
 
 ##### FISH #####
-FISH_DIR=~/.config/fish
+FISH_DIR=.config/fish
 mkdir -p ~/$FISH_DIR/functions/
 ln -s ~/dotfiles/$FISH_DIR/fish_variables ~/$FISH_DIR/fish_variables
 ln -s ~/dotfiles/$FISH_DIR/functions/fish_prompt.fish ~/$FISH_DIR/functions/fish_prompt.fish
