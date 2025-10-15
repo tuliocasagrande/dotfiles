@@ -95,6 +95,10 @@ augroup whitespace
     autocmd BufWinLeave * call clearmatches()
 augroup END
 
+" show whitespace characters
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
+set list
+
 " remap movement to move by column layout
 map j gj
 map k gk
